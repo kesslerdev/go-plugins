@@ -54,6 +54,11 @@ func AckOnSuccess() broker.SubscribeOption {
 	return setSubscribeOption(ackSuccessKey{}, true)
 }
 
+// ServerAckOnSuccess will automatically acknowledge messages when no error is returned
+func ServerAckOnSuccess() server.SubscriberOption {
+	return setServerSubscriberOption(ackSuccessKey{}, true)
+}
+
 type connectTimeoutKey struct{}
 
 // ConnectTimeout timeout for connecting to broker -1 infinitive or time.Duration value
